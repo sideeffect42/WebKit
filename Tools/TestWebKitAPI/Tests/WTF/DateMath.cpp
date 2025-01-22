@@ -133,19 +133,27 @@ TEST(WTF_DateMath, dayInMonthFromDayInYear)
     EXPECT_EQ(32, dayInMonthFromDayInYear(366, true));
 }
 
+#if PLATFORM(WIN)
 static bool isPacificTimeZone()
 {
-#if PLATFORM(WIN)
     TIME_ZONE_INFORMATION info;
     GetTimeZoneInformation(&info);
     return info.Bias == 8 * 60 && !info.StandardBias && info.DaylightBias == -60;
-#else
-    return true;
-#endif
 }
+#else
+#include <time.h>
+static bool isPacificTimeZone()
+{
+    return timezone == (8 * 60) && daylight;
+}
+#endif
 
 TEST(WTF_DateMath, calculateLocalTimeOffset)
 {
+#if !PLATFORM(WIN)
+    tzset();
+#endif
+
     if (!isPacificTimeZone())
         GTEST_SKIP() << "Not in Pacific Time Zone";
 

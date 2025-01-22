@@ -479,17 +479,14 @@ _xdg_mime_magic_parse_magic_line (FILE              *magic_file,
       /* We clean up the matchlet, byte swapping if needed */
       if (matchlet->word_size > 1)
 	{
-#if LITTLE_ENDIAN
-	  int i;
-#endif
 	  if (matchlet->value_length % matchlet->word_size != 0)
 	    {
 	      _xdg_mime_magic_matchlet_free (matchlet);
 	      return XDG_MIME_MAGIC_ERROR;
 	    }
 	  /* FIXME: need to get this defined in a <config.h> style file */
-#if LITTLE_ENDIAN
-	  for (i = 0; i < matchlet->value_length; i = i + matchlet->word_size)
+#if __BYTE_ORDER == __LITTLE_ENDIAN
+	  for (int i = 0; i < matchlet->value_length; i = i + matchlet->word_size)
 	    {
 	      if (matchlet->word_size == 2)
 		*((xdg_uint16_t *) matchlet->value + i) = SWAP_BE16_TO_LE16 (*((xdg_uint16_t *) (matchlet->value + i)));

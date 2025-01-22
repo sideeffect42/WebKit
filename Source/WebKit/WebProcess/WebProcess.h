@@ -81,7 +81,7 @@ OBJC_CLASS NSMutableDictionary;
 #include "ViewUpdateDispatcher.h"
 #endif
 
-#if HAVE(MEDIA_ACCESSIBILITY_FRAMEWORK)
+#if HAVE(MEDIA_ACCESSIBILITY_FRAMEWORK) && ENABLE(VIDEO)
 #include <WebCore/CaptionUserPreferences.h>
 #endif
 
@@ -678,8 +678,7 @@ private:
 #endif
 
     void accessibilityPreferencesDidChange(const AccessibilityPreferences&);
-    void updatePageAccessibilitySettings();
-#if HAVE(MEDIA_ACCESSIBILITY_FRAMEWORK)
+#if HAVE(MEDIA_ACCESSIBILITY_FRAMEWORK) && ENABLE(VIDEO)
     void setMediaAccessibilityPreferences(WebCore::CaptionUserPreferences::CaptionDisplayMode, const Vector<String>&);
 #endif
 

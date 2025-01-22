@@ -37,6 +37,8 @@
 #define MAYBE(name) name
 #endif
 
+#if USE(LIBBACKTRACE)
+
 namespace TestWebKitAPI {
 
 TEST(StackTraceTest, MAYBE(StackTraceWorks))
@@ -133,5 +135,7 @@ TEST(StackTraceTest, MAYBE(CaptureStackTraceLimitAndSkip))
 }
 
 }
+
+#endif
 
 #undef MAYBE

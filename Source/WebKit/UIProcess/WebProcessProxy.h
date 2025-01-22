@@ -65,7 +65,7 @@
 #include <wtf/WeakHashMap.h>
 #include <wtf/WeakHashSet.h>
 
-#if HAVE(MEDIA_ACCESSIBILITY_FRAMEWORK)
+#if HAVE(MEDIA_ACCESSIBILITY_FRAMEWORK) && ENABLE(VIDEO)
 #include <WebCore/CaptionUserPreferences.h>
 #endif
 
@@ -485,7 +485,7 @@ public:
     void platformResumeProcess();
 #endif
 
-#if HAVE(MEDIA_ACCESSIBILITY_FRAMEWORK)
+#if HAVE(MEDIA_ACCESSIBILITY_FRAMEWORK) && ENABLE(VIDEO)
     void setCaptionDisplayMode(WebCore::CaptionUserPreferences::CaptionDisplayMode);
     void setCaptionLanguage(const String&);
 #endif

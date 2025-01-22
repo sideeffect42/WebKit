@@ -63,7 +63,9 @@
 #include <WebCore/AXCoreObject.h>
 #include <WebCore/AXObjectCache.h>
 #include <WebCore/CSSParser.h>
+#if ENABLE(VIDEO)
 #include <WebCore/CaptionUserPreferences.h>
+#endif
 #include <WebCore/CompositionHighlight.h>
 #include <WebCore/FocusController.h>
 #include <WebCore/LocalFrame.h>

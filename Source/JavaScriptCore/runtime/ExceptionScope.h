@@ -44,7 +44,7 @@ class Exception;
 #define EXCEPTION_ASSERT_UNUSED(variable, assertion) RELEASE_ASSERT(assertion)
 #define EXCEPTION_ASSERT_WITH_MESSAGE(assertion, message) RELEASE_ASSERT_WITH_MESSAGE(assertion, message)
 
-#if ENABLE(C_LOOP)
+#if 0 && ENABLE(C_LOOP)
 #define EXCEPTION_SCOPE_POSITION_FOR_ASAN(vm__) (vm__).currentCLoopStackPointer()
 #elif ASAN_ENABLED
 #define EXCEPTION_SCOPE_POSITION_FOR_ASAN(vm__) currentStackPointer()

@@ -20,6 +20,8 @@
 
 #pragma once
 
+#if ENABLE(WEB_CODECS) && USE(GSTREAMER)
+
 #include "GStreamerCommon.h"
 #include "VideoEncoderScalabilityMode.h"
 #include <wtf/TZoneMalloc.h>
@@ -90,3 +92,5 @@ bool videoEncoderSupportsCodec(WebKitVideoEncoder*, const String&);
 bool videoEncoderSetCodec(WebKitVideoEncoder*, const String&, std::optional<WebCore::IntSize> = std::nullopt, std::optional<double> frameRate = std::nullopt);
 void videoEncoderSetBitRateAllocation(WebKitVideoEncoder*, RefPtr<WebKitVideoEncoderBitRateAllocation>&&);
 void teardownVideoEncoderSingleton();
+
+#endif

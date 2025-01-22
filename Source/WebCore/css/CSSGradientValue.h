@@ -26,6 +26,12 @@
 #pragma once
 
 #include "CSSGradient.h"
+#include "CSSCalcValue.h"
+#include "CSSPrimitiveValue.h"
+#include "CSSPropertyParserConsumer+RawTypes.h"
+#include "CSSPropertyParserConsumer+UnevaluatedCalc.h"
+#include "ColorInterpolationMethod.h"
+#include "Gradient.h"
 #include "StyleImage.h"
 
 namespace WebCore {

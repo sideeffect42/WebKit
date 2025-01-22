@@ -23,7 +23,12 @@
  */
 
 #include "config.h"
+#include "CSSCalcSymbolTable.h"
+#include "CSSPropertyParserConsumer+Angle.h"
+#include "CSSPropertyParserConsumer+Ident.h"
 #include "CSSPropertyParserConsumer+Image.h"
+#include "CSSPropertyParserConsumer+Length.h"
+#include "CSSPropertyParserConsumer+CSSPrimitiveValueResolver.h"
 
 #include "CSSCalcSymbolTable.h"
 #include "CSSCanvasValue.h"
@@ -66,6 +71,8 @@
 #include "CSSValuePool.h"
 #include "CSSVariableData.h"
 #include "StyleImage.h"
+#include <wtf/SortedArrayMap.h>
+
 #include <wtf/SortedArrayMap.h>
 
 namespace WebCore {

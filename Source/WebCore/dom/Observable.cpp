@@ -26,6 +26,8 @@
 #include "Observable.h"
 
 #include "AbortSignal.h"
+#include <wtf/IsoMallocInlines.h>
+
 #include "CallbackResult.h"
 #include "Document.h"
 #include "Exception.h"

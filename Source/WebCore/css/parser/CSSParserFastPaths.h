@@ -29,6 +29,7 @@
 
 #pragma once
 
+#include "CSSCalcValue.h"
 #include "CSSPropertyNames.h"
 #include "CSSValueKeywords.h"
 #include "ColorTypes.h"

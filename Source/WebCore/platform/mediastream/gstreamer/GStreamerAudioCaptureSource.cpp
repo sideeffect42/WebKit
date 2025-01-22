@@ -25,8 +25,8 @@
 #if ENABLE(MEDIA_STREAM) && USE(GSTREAMER)
 #include "GStreamerAudioCaptureSource.h"
 
-#include "GStreamerAudioData.h"
-#include "GStreamerAudioStreamDescription.h"
+#include "gstreamer/GStreamerAudioData.h"
+#include "gstreamer/GStreamerAudioStreamDescription.h"
 #include "GStreamerCaptureDeviceManager.h"
 
 #include <gst/app/gstappsink.h>

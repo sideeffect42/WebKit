@@ -21,7 +21,7 @@
 #include "config.h"
 #include "VideoEncoderPrivateGStreamer.h"
 
-#if ENABLE(VIDEO) && USE(GSTREAMER)
+#if ENABLE(VIDEO) && ENABLE(WEB_CODECS) && USE(GSTREAMER)
 
 #include "GStreamerCodecUtilities.h"
 #include "GStreamerCommon.h"

@@ -29,6 +29,8 @@
 #include "JSGenericTypedArrayView.h"
 #include "JSGlobalObjectInlines.h"
 #include "ParseInt.h"
+#include "JSGenericTypedArrayView.h"
+#include "Uint8Array.h"
 #include <wtf/text/Base64.h>
 
 WTF_ALLOW_UNSAFE_BUFFER_USAGE_BEGIN

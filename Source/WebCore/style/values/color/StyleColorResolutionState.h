@@ -27,6 +27,16 @@
 
 #include "CSSToLengthConversionData.h"
 
+#include "config.h"
+#include "CSSColorMixSerialization.h"
+
+#include "CSSPropertyParserConsumer+RawTypes.h"
+#include "CSSPropertyParserConsumer+UnevaluatedCalc.h"
+#include "CSSUnresolvedColor.h"
+#include "CSSUnresolvedColorMix.h"
+#include "StyleColor.h"
+#include "StyleColorMix.h"
+
 namespace WebCore {
 
 class Document;

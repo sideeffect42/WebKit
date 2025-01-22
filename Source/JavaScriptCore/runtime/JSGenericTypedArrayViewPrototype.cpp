@@ -25,6 +25,8 @@
 
 #include "config.h"
 #include "JSGenericTypedArrayViewPrototype.h"
+#include "JSArrayBufferViewInlines.h"
+#include "ExceptionHelpers.h"
 
 #include "JSGenericTypedArrayView.h"
 #include "JSGenericTypedArrayViewConstructor.h"
@@ -227,7 +229,7 @@ JSC_DEFINE_HOST_FUNCTION(uint8ArrayPrototypeToHex, (JSGlobalObject* globalObject
         return JSValue::encode(jsEmptyString(vm));
 
     if ((length * 2) > static_cast<size_t>(StringImpl::MaxLength)) {
-        throwOutOfMemoryError(globalObject, scope, "generated stirng is too long"_s);
+        throwOutOfMemoryError(globalObject, scope, "generated string is too long"_s);
         return { };
     }
 

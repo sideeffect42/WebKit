@@ -27,6 +27,8 @@
 #include "CSSPosition.h"
 #include "CSSPropertyParserOptions.h"
 #include <optional>
+#include "CSSPropertyParserConsumer+Primitives.h"
+#include "CSSParserContext.h"
 
 namespace WebCore {
 

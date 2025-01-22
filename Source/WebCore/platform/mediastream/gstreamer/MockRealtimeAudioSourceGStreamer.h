@@ -25,8 +25,8 @@
 #if ENABLE(MEDIA_STREAM) && USE(GSTREAMER)
 
 #include "GStreamerAudioCapturer.h"
-#include "GStreamerAudioData.h"
-#include "GStreamerAudioStreamDescription.h"
+#include "gstreamer/GStreamerAudioData.h"
+#include "gstreamer/GStreamerAudioStreamDescription.h"
 #include "MockRealtimeAudioSource.h"
 
 namespace WebCore {

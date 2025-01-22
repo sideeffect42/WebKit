@@ -28,6 +28,7 @@
 #pragma once
 
 #include "AsyncNodeDeletionQueue.h"
+#include "ActiveDOMObject.h"
 #include "Color.h"
 #include "ContainerNode.h"
 #include "ContextDestructionObserverInlines.h"
@@ -39,6 +40,7 @@
 #include "FrameDestructionObserver.h"
 #include "FrameIdentifier.h"
 #include "HitTestSource.h"
+#include "IDBConnectionProxy.h"
 #include "IntDegrees.h"
 #include "PageIdentifier.h"
 #include "PermissionsPolicy.h"
@@ -47,7 +49,10 @@
 #include "RegistrableDomain.h"
 #include "RenderPtr.h"
 #include "ReportingClient.h"
+#include "RTCDataChannelRemoteHandlerConnection.h"
+#include "Settings.h"
 #include "ScriptExecutionContext.h"
+#include "SocketProvider.h"
 #include "StringWithDirection.h"
 #include "Supplementable.h"
 #include "TextIndicator.h"

@@ -1133,7 +1133,11 @@ static void webkit_settings_class_init(WebKitSettingsClass* klass)
             "enable-webgl",
             _("Enable WebGL"),
             _("Whether WebGL content should be rendered"),
+#if ENABLE(WEBGL)
             FEATURE_DEFAULT(WebGLEnabled),
+#else
+            FALSE,
+#endif
             readWriteConstructParamFlags);
 
     /**

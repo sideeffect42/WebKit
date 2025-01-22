@@ -405,7 +405,7 @@ bool ensureGStreamerInitialized()
 
 static bool registerInternalVideoEncoder()
 {
-#if ENABLE(VIDEO)
+#if ENABLE(VIDEO) && ENABLE(WEB_CODECS)
     if (auto factory = adoptGRef(gst_element_factory_find("webkitvideoencoder")))
         return false;
     return gst_element_register(nullptr, "webkitvideoencoder", GST_RANK_PRIMARY + 100, WEBKIT_TYPE_VIDEO_ENCODER);
@@ -622,7 +622,7 @@ void deinitializeGStreamer()
     teardownGStreamerRegistryScannerMSE();
 #endif
     teardownGStreamerRegistryScanner();
-#if ENABLE(VIDEO)
+#if ENABLE(VIDEO) && ENABLE(WEB_CODECS)
     teardownVideoEncoderSingleton();
     teardownGStreamerImageDecoders();
 #endif

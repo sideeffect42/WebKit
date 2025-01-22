@@ -112,6 +112,8 @@ public:
     static Ref<CSSPrimitiveValue> create(Ref<CSSCalcValue>);
     static Ref<CSSPrimitiveValue> create(Ref<CSSAttrValue>);
 
+    // warning: inline function 'static WTF::Ref<WebCore::CSSPrimitiveValue, WTF::RawPtrTraits<WebCore::CSSPrimitiveValue>, WTF::DefaultRefDerefTraits<WebCore::CSSPrimitiveValue> > WebCore::CSSPrimitiveValue::create(WebCore::CSSValueID)' used but never defined
+    // it is defined in CSSValuePool.h
     static inline Ref<CSSPrimitiveValue> create(CSSValueID);
     bool isValueID() const { return primitiveUnitType() == CSSUnitType::CSS_VALUE_ID; }
     CSSValueID valueID() const { return isValueID() ? m_value.valueID : CSSValueInvalid; }

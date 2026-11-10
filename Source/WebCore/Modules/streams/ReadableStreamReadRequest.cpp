@@ -123,7 +123,7 @@ void ReadableStreamReadRequestBase::runErrorSteps(Exception&& exception)
 
     Ref vm = globalObject->vm();
     JSC::JSLockHolder locker(vm);
-    auto scope = DECLARE_TOP_EXCEPTION_SCOPE(vm);
+    auto scope = DECLARE_TOP_EXCEPTION_SCOPE(vm.get());
     auto jsException = createDOMException(*globalObject, WTF::move(exception));
     if (scope.exception()) [[unlikely]] {
         scope.clearException();

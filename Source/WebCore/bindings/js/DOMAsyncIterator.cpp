@@ -37,7 +37,7 @@ namespace WebCore {
 ExceptionOr<Ref<DOMAsyncIterator>> DOMAsyncIterator::create(JSDOMGlobalObject& globalObject, JSC::JSValue iterable)
 {
     Ref vm = globalObject.vm();
-    auto throwScope = DECLARE_THROW_SCOPE(vm);
+    auto throwScope = DECLARE_THROW_SCOPE(vm.get());
     auto iteratorRecord = JSC::getAsyncIteratorExported(globalObject, iterable);
     RETURN_IF_EXCEPTION(throwScope, Exception { ExceptionCode::ExistingExceptionError });
 
@@ -60,7 +60,7 @@ void DOMAsyncIterator::callNext(Callback&& callback)
 
     Ref vm = globalObject->vm();
 
-    auto scope = DECLARE_TOP_EXCEPTION_SCOPE(vm);
+    auto scope = DECLARE_TOP_EXCEPTION_SCOPE(vm.get());
     auto result = JSC::iteratorNextExported(globalObject, { m_iterator->guardedObject(), guardedObject() }, { });
     if (auto* exception = scope.exception()) {
         scope.clearException();
@@ -94,7 +94,7 @@ void DOMAsyncIterator::callReturn(JSC::JSValue reason, Callback&& callback)
 
     Ref vm = globalObject->vm();
 
-    auto scope = DECLARE_TOP_EXCEPTION_SCOPE(vm);
+    auto scope = DECLARE_TOP_EXCEPTION_SCOPE(vm.get());
     JSC::CallData callData;
     auto returnMethod = m_iterator->object()->getMethod(globalObject, callData, vm->propertyNames->returnKeyword, "return property should be callable"_s);
     if (auto* exception = scope.exception()) {

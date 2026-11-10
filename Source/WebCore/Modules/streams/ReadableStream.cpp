@@ -101,7 +101,7 @@ ExceptionOr<Ref<ReadableStream>> ReadableStream::create(JSDOMGlobalObject& globa
         strategy = strategyValue.get();
 
     Ref vm = globalObject.vm();
-    auto throwScope = DECLARE_THROW_SCOPE(vm);
+    auto throwScope = DECLARE_THROW_SCOPE(vm.get());
     RefPtr context = globalObject.scriptExecutionContext();
     if (context->settingsValues().readableByteStreamAPIEnabled) {
         // FIXME: We convert strategy twice for regular readable streams.
@@ -361,7 +361,7 @@ void ReadableStream::cancel(Exception&& exception)
 
     Ref vm = globalObject->vm();
     JSC::JSLockHolder lock(vm);
-    auto scope = DECLARE_TOP_EXCEPTION_SCOPE(vm);
+    auto scope = DECLARE_TOP_EXCEPTION_SCOPE(vm.get());
     auto jsException = createDOMException(globalObject, exception.code(), exception.message());
 
     if (scope.exception()) [[unlikely]] {

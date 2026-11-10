@@ -93,7 +93,7 @@ void Observable::subscribeInternal(ScriptExecutionContext& context, Ref<Internal
     // error handler.
     JSC::Exception* previousException = nullptr;
     {
-        auto catchScope = DECLARE_TOP_EXCEPTION_SCOPE(vm);
+        auto catchScope = DECLARE_TOP_EXCEPTION_SCOPE(vm.get());
         m_subscriberCallback->invokeRethrowingException(subscriber);
         previousException = catchScope.exception();
         if (previousException) {

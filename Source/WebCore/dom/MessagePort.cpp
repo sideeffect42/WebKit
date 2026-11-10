@@ -368,7 +368,7 @@ void MessagePort::dispatchMessages()
         ASSERT(context->isContextThread());
         auto* globalObject = context->globalObject();
         Ref vm = globalObject->vm();
-        auto scope = DECLARE_TOP_EXCEPTION_SCOPE(vm);
+        auto scope = DECLARE_TOP_EXCEPTION_SCOPE(vm.get());
 
         RefPtr workerGlobalScope = dynamicDowncast<WorkerGlobalScope>(*context);
         for (auto& message : messages) {
@@ -414,7 +414,7 @@ void MessagePort::drainOneLocalMessage()
 
     auto* globalObject = context->globalObject();
     Ref vm = globalObject->vm();
-    auto scope = DECLARE_TOP_EXCEPTION_SCOPE(vm);
+    auto scope = DECLARE_TOP_EXCEPTION_SCOPE(vm.get());
 
     auto message = m_localQueue.takeFirst();
 

@@ -68,7 +68,7 @@ private:
 
             // The exception is not reported, instead it is forwarded to the
             // abort signal and promise rejection.
-            auto scope = DECLARE_TOP_EXCEPTION_SCOPE(vm);
+            auto scope = DECLARE_TOP_EXCEPTION_SCOPE(vm.get());
 
             auto result = protect(m_callback)->invokeRethrowingException(value, m_idx++);
 

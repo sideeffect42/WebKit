@@ -73,7 +73,7 @@ private:
             return;
 
         Ref vm = globalObject->vm();
-        auto scope = DECLARE_THROW_SCOPE(vm);
+        auto scope = DECLARE_THROW_SCOPE(vm.get());
         auto chunkOrException = convert<IDLUint8Array>(*globalObject, value);
         if (chunkOrException.hasException(scope)) [[unlikely]] {
             TRY_CLEAR_EXCEPTION(scope, void());

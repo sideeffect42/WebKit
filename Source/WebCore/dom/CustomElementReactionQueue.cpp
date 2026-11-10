@@ -378,7 +378,7 @@ void CustomElementQueue::processQueue(JSC::JSGlobalObject* state)
 
     JSC::Exception* previousException = nullptr;
     {
-        auto catchScope = DECLARE_TOP_EXCEPTION_SCOPE(vm);
+        auto catchScope = DECLARE_TOP_EXCEPTION_SCOPE(vm.get());
         previousException = catchScope.exception();
         if (previousException)
             catchScope.clearException();
@@ -387,7 +387,7 @@ void CustomElementQueue::processQueue(JSC::JSGlobalObject* state)
     invokeAll();
 
     if (previousException) {
-        auto throwScope = DECLARE_THROW_SCOPE(vm);
+        auto throwScope = DECLARE_THROW_SCOPE(vm.get());
         throwException(state, throwScope, previousException);
     }
 }

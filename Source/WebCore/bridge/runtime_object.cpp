@@ -140,7 +140,7 @@ JSC_DEFINE_CUSTOM_GETTER(methodGetter, (JSGlobalObject* lexicalGlobalObject, Enc
 bool RuntimeObject::getOwnPropertySlot(JSObject* object, JSGlobalObject* lexicalGlobalObject, PropertyName propertyName, PropertySlot& slot)
 {
     Ref vm = lexicalGlobalObject->vm();
-    auto scope = DECLARE_THROW_SCOPE(vm);
+    auto scope = DECLARE_THROW_SCOPE(vm.get());
 
     RuntimeObject* thisObject = uncheckedDowncast<RuntimeObject>(object);
     if (!thisObject->m_instance) {

@@ -72,7 +72,7 @@ public:
                 Ref vm = globalObject->vm();
 
                 JSC::JSLockHolder lock(vm);
-                auto scope = DECLARE_TOP_EXCEPTION_SCOPE(vm);
+                auto scope = DECLARE_TOP_EXCEPTION_SCOPE(vm.get());
 
                 subscribe->invokeRethrowingException();
 
@@ -114,7 +114,7 @@ private:
         if (RefPtr next = m_inspector.next) {
             Ref vm = this->vm();
             JSC::JSLockHolder lock(vm);
-            auto scope = DECLARE_TOP_EXCEPTION_SCOPE(vm);
+            auto scope = DECLARE_TOP_EXCEPTION_SCOPE(vm.get());
 
             next->invokeRethrowingException(value);
 
@@ -136,7 +136,7 @@ private:
         if (RefPtr error = m_inspector.error) {
             Ref vm = this->vm();
             JSC::JSLockHolder lock(vm);
-            auto scope = DECLARE_TOP_EXCEPTION_SCOPE(vm);
+            auto scope = DECLARE_TOP_EXCEPTION_SCOPE(vm.get());
 
             error->invokeRethrowingException(value);
 
@@ -160,7 +160,7 @@ private:
         if (RefPtr complete = m_inspector.complete) {
             Ref vm = this->vm();
             JSC::JSLockHolder lock(vm);
-            auto scope = DECLARE_TOP_EXCEPTION_SCOPE(vm);
+            auto scope = DECLARE_TOP_EXCEPTION_SCOPE(vm.get());
 
             complete->invokeRethrowingException();
 

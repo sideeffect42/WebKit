@@ -280,7 +280,7 @@ JSC_DEFINE_HOST_FUNCTION(byteLengthQueuingStrategySize, (JSGlobalObject* globalO
 {
     ASSERT(callFrame);
     Ref vm = globalObject->vm();
-    auto throwScope = DECLARE_THROW_SCOPE(vm);
+    auto throwScope = DECLARE_THROW_SCOPE(vm.get());
     if (!callFrame->argumentCount()) {
         throwException(globalObject, throwScope, createNotEnoughArgumentsError(globalObject));
         return encodedJSValue();

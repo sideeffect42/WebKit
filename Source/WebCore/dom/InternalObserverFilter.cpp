@@ -105,7 +105,7 @@ private:
         // error handler.
         JSC::Exception* previousException = nullptr;
         {
-            auto catchScope = DECLARE_TOP_EXCEPTION_SCOPE(vm);
+            auto catchScope = DECLARE_TOP_EXCEPTION_SCOPE(vm.get());
             auto result = protect(m_predicate)->invokeRethrowingException(value, m_idx);
             previousException = catchScope.exception();
             if (previousException) {

@@ -49,7 +49,7 @@ static ExceptionOr<void> packAndPostMessage(JSDOMGlobalObject& globalObject, Mes
 {
     Ref vm = globalObject.vm();
     JSC::JSLockHolder lock(vm);
-    auto catchScope = DECLARE_TOP_EXCEPTION_SCOPE(vm);
+    auto catchScope = DECLARE_TOP_EXCEPTION_SCOPE(vm.get());
 
     auto* data = JSC::constructEmptyObject(&globalObject);
     if (catchScope.exception()) [[unlikely]]
@@ -133,7 +133,7 @@ private:
     bool handleMessage(JSDOMGlobalObject& globalObject, JSC::JSObject& object)
     {
         Ref vm = globalObject.vm();
-        auto catchScope = DECLARE_TOP_EXCEPTION_SCOPE(vm);
+        auto catchScope = DECLARE_TOP_EXCEPTION_SCOPE(vm.get());
 
         auto typeValue = object.get(&globalObject, vm->propertyNames->type);
         if (catchScope.exception()) [[unlikely]]
@@ -260,7 +260,7 @@ private:
     bool handleMessage(JSDOMGlobalObject& globalObject, JSC::JSObject& object)
     {
         Ref vm = globalObject.vm();
-        auto catchScope = DECLARE_TOP_EXCEPTION_SCOPE(vm);
+        auto catchScope = DECLARE_TOP_EXCEPTION_SCOPE(vm.get());
 
         auto typeValue = object.get(&globalObject, vm->propertyNames->type);
         if (catchScope.exception()) [[unlikely]]
